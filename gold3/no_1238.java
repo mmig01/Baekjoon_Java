@@ -21,7 +21,7 @@ class Pair implements Comparable<Pair> {
         return result;
     }
 }
-public class Main {
+public class no_1238 {
     private static final int INF = 2140000000;
     private int[][] goWeightArr;
     private int[][] backWeightArr;
