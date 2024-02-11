@@ -42,9 +42,11 @@ class Node{
 public class Main{
     private Node[] inputNode;
     private long[] distance;
+    private boolean[] isVisit;
     private void makeArr(int length) {
         inputNode = new Node[length];
         distance = new long[length];
+        isVisit = new boolean[length];
         for (int i = 0; i < length; i ++) {
             inputNode[i] = new Node();
         }
@@ -58,7 +60,8 @@ public class Main{
             int curVertex = pq.peek().getVertex();
             long curWeight = pq.peek().getWeight();
             pq.poll();
-            if (curWeight <= distance[curVertex]) {
+            if (!isVisit[curVertex]) {
+                isVisit[curVertex] = true;
                 Iterator<Pair> it = inputNode[curVertex].iterator();
                 while (it.hasNext()) {
                     Pair p = it.next();
